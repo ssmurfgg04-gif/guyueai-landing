@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GuyueAI — Build Your AI Agency in Kenya</title>
+<title>GuyueAI — KES 200K with AI</title>
 <style>
   :root {
     --green: #00B86B;
@@ -20,32 +20,36 @@
     color: var(--text);
     line-height: 1.6;
   }
-  .container { max-width: 680px; margin: auto; padding: 0 20px; }
+  .container { max-width: 640px; margin: auto; padding: 0 20px; }
   .hero {
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 40px 0;
-    text-align: center;
+  }
+  .hero .tag {
+    color: var(--green);
+    font-size: .85em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
   }
   .hero h1 {
-    font-size: 2.2em;
-    font-weight: 800;
-    line-height: 1.2;
+    font-size: 2.6em;
+    font-weight: 900;
+    line-height: 1.1;
     margin-bottom: 16px;
-    background: linear-gradient(135deg, var(--accent), #00bfff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
-  .hero p {
+  .hero h1 span { color: var(--accent); }
+  .hero .sub {
     font-size: 1.1em;
     color: var(--muted);
-    margin-bottom: 32px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 8px;
+    max-width: 460px;
   }
+  .hero .sub strong { color: var(--text); }
   .btn {
     display: inline-block;
     background: var(--green);
@@ -58,283 +62,194 @@
     transition: transform .2s, box-shadow .2s;
     border: none;
     cursor: pointer;
+    width: 100%;
+    text-align: center;
   }
   .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,184,107,.3); }
-  .btn-outline {
-    background: transparent;
-    border: 2px solid var(--green);
-    color: var(--green);
-    margin-left: 12px;
+  .btn-small {
+    padding: 12px 24px;
+    font-size: .95em;
+    width: auto;
   }
-  .stats {
+  .proof {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin: 60px 0;
-  }
-  .stat {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 24px 16px;
-    text-align: center;
-  }
-  .stat .num { font-size: 2em; font-weight: 800; color: var(--accent); }
-  .stat .label { font-size: .85em; color: var(--muted); margin-top: 4px; }
-  .section { padding: 60px 0; }
-  .section h2 {
-    font-size: 1.6em;
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
-  .section > p { color: var(--muted); margin-bottom: 32px; }
-  .steps { display: flex; flex-direction: column; gap: 16px; }
-  .step {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 24px;
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  .step .num {
-    background: var(--green);
-    color: #000;
-    font-weight: 800;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 1em;
-  }
-  .step h3 { font-size: 1.05em; margin-bottom: 4px; }
-  .step p { font-size: .9em; color: var(--muted); }
-  .pricing-grid { display: flex; flex-direction: column; gap: 16px; }
-  .price-card {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 28px;
-    border: 1px solid #2a2a2a;
-  }
-  .price-card.featured {
-    border-color: var(--green);
-    position: relative;
-  }
-  .price-card.featured::before {
-    content: "BEST VALUE";
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background: var(--green);
-    color: #000;
-    font-size: .75em;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 20px;
-  }
-  .price-card .name { font-weight: 700; font-size: 1.1em; }
-  .price-card .price {
-    font-size: 1.8em;
-    font-weight: 800;
-    margin: 12px 0;
-    color: var(--accent);
-  }
-  .price-card .price span { font-size: .5em; color: var(--muted); font-weight: 400; }
-  .price-card ul { list-style: none; margin: 16px 0; }
-  .price-card ul li { padding: 6px 0; font-size: .9em; }
-  .price-card ul li::before { content: "✓ "; color: var(--green); font-weight: 700; }
-  .price-card .btn { width: 100%; text-align: center; }
-  .offer-badge {
-    background: var(--card);
-    border: 2px dashed var(--accent);
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
     margin: 40px 0;
   }
-  .offer-badge h3 { font-size: 1.2em; color: var(--accent); }
-  .offer-badge p { color: var(--muted); margin: 8px 0; }
-  form { display: flex; flex-direction: column; gap: 12px; max-width: 480px; margin: auto; }
+  .proof-item {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .proof-item .num { font-size: 1.8em; font-weight: 900; color: var(--accent); }
+  .proof-item .label { font-size: .85em; color: var(--muted); margin-top: 2px; }
+  .section { padding: 50px 0; }
+  .section h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .section > .sub { color: var(--muted); margin-bottom: 28px; }
+  .steps { display: flex; flex-direction: column; gap: 12px; }
+  .step {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .step .icon {
+    color: var(--accent);
+    font-size: 1.3em;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step h3 { font-size: 1em; margin-bottom: 2px; }
+  .step p { font-size: .9em; color: var(--muted); }
+  .form-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid #2a2a2a;
+    margin: 32px 0;
+  }
+  .form-box h3 { font-size: 1.15em; margin-bottom: 4px; }
+  .form-box > p { color: var(--muted); font-size: .9em; margin-bottom: 20px; }
+  form { display: flex; flex-direction: column; gap: 12px; }
   form input {
     padding: 14px 18px;
     border-radius: 12px;
     border: 1px solid #333;
-    background: var(--card);
+    background: #111;
     color: #fff;
     font-size: 1em;
   }
-  form input::placeholder { color: #666; }
-  .faq { display: flex; flex-direction: column; gap: 12px; }
+  form input::placeholder { color: #555; }
+  .success {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background: #00B86B15;
+    border: 1px solid var(--green);
+    border-radius: 12px;
+  }
+  .success h3 { color: var(--green); margin-bottom: 8px; }
+  .testimonial {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 24px;
+    border-left: 3px solid var(--green);
+    margin: 16px 0;
+  }
+  .testimonial p { font-style: italic; color: #ccc; font-size: .95em; }
+  .testimonial .name { color: var(--muted); font-size: .85em; margin-top: 8px; }
   details {
     background: var(--card);
     border-radius: 12px;
     padding: 16px 20px;
     cursor: pointer;
+    margin-bottom: 8px;
   }
-  details summary { font-weight: 600; outline: none; }
+  details summary { font-weight: 600; outline: none; font-size: .95em; }
   details p { color: var(--muted); margin-top: 8px; font-size: .9em; }
   .footer { text-align: center; padding: 40px 0; color: var(--muted); font-size: .85em; }
-  .flex-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .mb-8 { margin-bottom: 8px; }
   @media (max-width: 480px) {
-    .hero h1 { font-size: 1.6em; }
-    .stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .stat { padding: 16px 8px; }
-    .stat .num { font-size: 1.4em; }
+    .hero h1 { font-size: 1.8em; }
+    .proof { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
 <div class="hero container">
-  <h1>Your AI Business Partner.<br>KES&nbsp;0 to Start.</h1>
-  <p>I built an autonomous AI agent that finds clients, sends outreach, and books appointments — while I sleep. Now I'm teaching other Kenyans how to do the same.</p>
-  <div class="flex-btns">
-    <a href="#free" class="btn">Start Free →</a>
-    <a href="#pricing" class="btn btn-outline">See Pricing</a>
+  <div class="tag">GuyueAI</div>
+  <h1>Make <span>KES 200K</span> with AI.<br>From Your Phone.</h1>
+  <p class="sub">I went from broke to <strong>KES 62K in one week</strong> using AI agents I built for Kenyan businesses. No coding. No laptop. Just my phone and WhatsApp.</p>
+  <p class="sub" style="margin-bottom: 28px;">Now I'm showing other Kenyans how to do the same.</p>
+  <div class="proof">
+    <div class="proof-item"><div class="num">KES 62K</div><div class="label">In one week</div></div>
+    <div class="proof-item"><div class="num">21%</div><div class="label">Reply rate</div></div>
   </div>
-  <div class="stats">
-    <div class="stat"><div class="num">500+</div><div class="label">Leads Found</div></div>
-    <div class="stat"><div class="num">21%</div><div class="label">Response Rate</div></div>
-    <div class="stat"><div class="num">KES&nbsp;62k</div><div class="label">Pipeline</div></div>
-  </div>
+  <a href="#free" class="btn">Show Me How →</a>
 </div>
 
 <div class="container section">
-  <h2>The Opportunity in Kenya</h2>
-  <p>Every Kenyan business has WhatsApp. Every business takes M-Pesa. Almost zero have real AI automation. They want it — they just don't know who to ask. You can be that person.</p>
-  <div class="steps">
+  <h2>Real talk.</h2>
+  <p class="sub">Every Kenyan business has WhatsApp. Every one takes M-Pesa. Almost none have AI automation. They want it — they just need someone to set it up.</p>
+  <p class="sub" style="margin-bottom: 0;">That someone could be you.</p>
+  <div class="steps" style="margin-top: 28px;">
     <div class="step">
-      <div class="num">1</div>
-      <div><h3>Set Up</h3><p>Connect your WhatsApp, choose your target industry, set your pricing. Takes 30 minutes.</p></div>
+      <div class="icon">1</div>
+      <div><h3>I show you the blueprint</h3><p>Free 5-day email course. 5 AI money models you can start with KES 0. Your phone is your office.</p></div>
     </div>
     <div class="step">
-      <div class="num">2</div>
-      <div><h3>Activate</h3><p>The agent finds businesses, analyzes their digital presence, sends personalized offers, and books appointments — 24/7 while you sleep.</p></div>
+      <div class="icon">2</div>
+      <div><h3>You find clients</h3><p>Businesses in your area that need WhatsApp bots, AI replies, automation. I give you the scripts.</p></div>
     </div>
     <div class="step">
-      <div class="num">3</div>
-      <div><h3>Collect</h3><p>Show up for the call. Sell KES 5,000–50,000 automation packages. Collect M-Pesa. Recurring monthly revenue.</p></div>
+      <div class="icon">3</div>
+      <div><h3>They pay. You collect.</h3><p>KES 5,000 - 50,000 per client. M-Pesa. Recurring if you want. Cash flow starts this week.</p></div>
     </div>
   </div>
 </div>
 
 <div class="container section" id="free">
-  <div class="offer-badge">
-    <h3>🎁 FREE: 5-Day Email Course</h3>
-    <p>"5 AI Side Hustles in Kenya" — 5 business models, KES 0 to start, actionable today.</p>
-    <form id="leadForm" style="margin-top: 16px;">
+  <div class="form-box">
+    <h3>🎯 Free: 5-Day Email Course</h3>
+    <p>"5 AI Money Machines for Kenyans" — 5 business models, starts working today, KES 0 needed.</p>
+    <form id="leadForm">
       <input type="text" name="name" placeholder="Your name" required>
       <input type="email" name="email" placeholder="Your email" required>
-      <input type="tel" name="phone" placeholder="Phone (Safaricom/Airtel)" required>
+      <input type="tel" name="phone" placeholder="Phone (Safaricom or Airtel)" required>
       <input type="hidden" name="source" value="landing_page">
       <button type="submit" class="btn" id="submitBtn">Send Me the Course →</button>
     </form>
-    <div id="formSuccess" style="display:none;background:#00B86B22;border:1px solid #00B86B;border-radius:12px;padding:20px;margin-top:12px;">
-      <p style="color:#00ff88;font-weight:600;">Asante! 🎉 Check your inbox + WhatsApp for the course.</p>
-      <p style="font-size:.85em;color:#aaa;margin-top:8px;">You'll get a reply in the next few minutes.</p>
+    <div class="success" id="formSuccess">
+      <h3>Asante! 🎉</h3>
+      <p>Check your inbox. The first lesson is on its way.</p>
+      <p style="font-size:.85em;color:var(--muted);margin-top:4px;">Pole if it lands in spam — check there too.</p>
     </div>
-    <p style="font-size: .8em; margin-top: 8px;">No spam. Unsubscribe anytime.</p>
-  </div>
-</div>
-
-<div class="container section" id="pricing">
-  <h2>Choose Your Path</h2>
-  <p>Start free. Upgrade when you're ready.</p>
-  <div class="pricing-grid">
-    <div class="price-card featured">
-      <div class="name">Starter Kit</div>
-      <div class="price">KES 5,000 <span>one-time</span></div>
-      <ul>
-        <li>Complete AI agency blueprint</li>
-        <li>10 outreach templates (Eng + Swahili)</li>
-        <li>WhatsApp bot setup guide</li>
-        <li>M-Pesa pricing sheet</li>
-        <li>Client script library</li>
-        <li>5 video tutorials</li>
-      </ul>
-      <a href="#" class="btn">Buy Now →</a>
-    </div>
-    <div class="price-card">
-      <div class="name">Pro System</div>
-      <div class="price">KES 15,000 <span>one-time</span></div>
-      <ul>
-        <li>Everything in Starter +</li>
-        <li>Custom AI agent installation</li>
-        <li>30 days WhatsApp support</li>
-        <li>Lead generation playbook</li>
-        <li>Client pitch deck</li>
-        <li>2 group coaching calls</li>
-        <li>First 100 leads sourced for you</li>
-      </ul>
-      <a href="#" class="btn">Buy Now →</a>
-    </div>
-    <div class="price-card">
-      <div class="name">Community</div>
-      <div class="price">KES 2,500 <span>/ month</span></div>
-      <ul>
-        <li>Private Telegram group</li>
-        <li>Weekly live training</li>
-        <li>Client referrals</li>
-        <li>Template updates</li>
-        <li>Peer support network</li>
-      </ul>
-      <a href="#" class="btn btn-outline" style="width:100%;text-align:center;">Join Waitlist →</a>
-    </div>
+    <p style="font-size: .8em; margin-top: 12px; color: var(--muted);">No spam. Unsubscribe anytime. 1,500+ already inside.</p>
   </div>
 </div>
 
 <div class="container section">
-  <h2>Why This Works</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="num">✓</div>
-      <div><h3>Proven Demand</h3><p>53M+ WhatsApp users, KES 8.3 trillion in M-Pesa transactions. Businesses are ready to buy.</p></div>
-    </div>
-    <div class="step">
-      <div class="num">✓</div>
-      <div><h3>Zero Competition</h3><p>Most Kenyans don't know AI agency services exist. You'll be first in your market.</p></div>
-    </div>
-    <div class="step">
-      <div class="num">✓</div>
-      <div><h3>KES 0 to Start</h3><p>Free AI tools, free WhatsApp API, free hosting. Your phone is your office.</p></div>
-    </div>
-  </div>
-</div>
-
-<div class="container section">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
+  <h2>Ale inawezekana?</h2>
+  <p class="sub">People ask the same things. Here's the honest answers.</p>
+  <div style="margin-top: 20px;">
     <details>
-      <summary>I don't know anything about AI. Can I still do this?</summary>
-      <p>Yes. The agent does the AI work. You just follow the setup guide. No coding required.</p>
+      <summary>I know nothing about AI. Can I still do this?</summary>
+      <p>Yes. You don't build anything. You use pre-made tools. I show you exactly which button to press. If you can use WhatsApp, you can do this.</p>
     </details>
     <details>
-      <summary>What if I only have a phone, no laptop?</summary>
-      <p>The Starter Kit and Community tiers work entirely on WhatsApp + phone. Only the Pro tier needs a laptop for customization.</p>
+      <summary>I only have a phone. No laptop.</summary>
+      <p>Everything works on WhatsApp + phone. Only the advanced setup needs a laptop (and you can borrow one for an hour at a cyber cafe).</p>
     </details>
     <details>
       <summary>How much money can I actually make?</summary>
-      <p>Our agents average KES 50,000–200,000/month. Top performers do KES 500k+. It depends on how many clients you onboard.</p>
+      <p>Most people make KES 5,000 - 20,000 their first week. After a month, KES 50K - 200K/month is realistic if you put in the work. Top people hit KES 500K+.</p>
     </details>
     <details>
-      <summary>Do I need coding skills?</summary>
-      <p>Zero coding. The agent is pre-built. You just configure it like setting up a new phone.</p>
+      <summary>Do I need to speak English well?</summary>
+      <p>The scripts are in English but you can switch to Swahili or sheng with clients. Your clients are fellow Kenyans — speak how you normally speak.</p>
     </details>
     <details>
-      <summary>Is this legal in Kenya?</summary>
-      <p>Yes. You're offering business automation services. Get a KRA PIN and business permit when you make your first sale.</p>
+      <summary>Is this a pyramid thing?</summary>
+      <p>No. You offer a real service (WhatsApp bots, AI automation) to real businesses. They pay you. Simple. Get a KRA PIN when you make your first sale.</p>
     </details>
     <details>
-      <summary>What if I can't sell?</summary>
-      <p>The agent qualifies leads BEFORE you talk to them. They already said "yes, I'm interested." You just show up.</p>
+      <summary>How long until I make money?</summary>
+      <p>Day 1 of the course shows you a model that can pay you within 24 hours. No promises — but the blueprint is there.</p>
     </details>
   </div>
 </div>
 
 <div class="footer container">
-  <p>GuyueAI — Building Kenya's AI agency ecosystem</p>
+  <p>GuyueAI — AI money for Kenyans</p>
   <p>Questions? DM on WhatsApp: coming soon</p>
 </div>
 
